@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS food;
 CREATE DATABASE IF NOT EXISTS food;
 USE food;
+/* LEAVE */
 CREATE TABLE employee
 (
     id INT NOT NULL AUTO_INCREMENT
@@ -81,3 +82,46 @@ INSERT INTO leaves VALUES (NULL, "2020-12-24 00:00:00", "2020-12-26 00:00:00", "
 SELECT * FROM employee;
 SELECT * FROM leaves;
 SELECT login("tanguy.sanquirgo@foo-d.fr", "temp");
+/* RECRUITMENT */
+CREATE TABLE admin
+(
+    id INT NOT NULL AUTO_INCREMENT
+    ,last_name VARCHAR(100) NOT NULL
+    ,first_name VARCHAR(100) NOT NULL
+    ,email VARCHAR(255) NOT NULL
+    ,date_of_birth DATE NOT NULL
+    ,country VARCHAR(255) NOT NULL
+    ,city VARCHAR(255) NOT NULL
+    ,zip_code VARCHAR(5) NOT NULL
+    ,date_of_hire DATE NOT NULL
+    ,password VARCHAR(255) NOT NULL
+    ,remaining FLOAT NOT NULL
+    ,used FLOAT NOT NULL
+    ,PRIMARY KEY (id)
+);
+CREATE TABLE offer
+(
+    id INT NOT NULL AUTO_INCREMENT
+    ,name VARCHAR(100) NOT NULL
+    ,description VARCHAR(100) NOT NULL
+    ,availability TINYINT NOT NULL
+    ,start_date DATE NOT NULL
+    ,end_date DATE NOT NULL
+    ,PRIMARY KEY (id)
+);
+CREATE TABLE postulation
+(
+    id INT NOT NULL AUTO_INCREMENT
+    ,last_name VARCHAR(100) NOT NULL
+    ,first_name VARCHAR(100) NOT NULL
+    ,email VARCHAR(255) NOT NULL
+    ,date_of_birth DATE NOT NULL
+    ,country VARCHAR(255) NOT NULL
+    ,city VARCHAR(255) NOT NULL
+    ,zip_code VARCHAR(5) NOT NULL
+    ,cv_id INT NOT NULL
+    ,cover_letter_id INT NOT NULL
+    ,id_offer INT NOT NULL
+    ,PRIMARY KEY (id)
+    ,FOREIGN KEY (id_offer) REFERENCES offer (id)
+);
