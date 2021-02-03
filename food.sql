@@ -125,3 +125,4 @@ CREATE TABLE postulation
     ,PRIMARY KEY (id)
     ,FOREIGN KEY (id_offer) REFERENCES offer (id)
 );
+INSERT INTO admin VALUES (NULL, "Sanquirgo", "Tanguy", "tanguy.sanquirgo@foo-d.fr", "1998-12-15", "France", "Boulogne-Billancourt", "92100", "2020-10-07", "temp", (DATEDIFF(CURDATE(), "2020-10-07") * 2.5) / 28, 0);
