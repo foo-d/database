@@ -106,7 +106,7 @@ CREATE TABLE offer
     ,description VARCHAR(100) NOT NULL
     ,availability TINYINT NOT NULL
     ,start_date DATE NOT NULL
-    ,end_date DATE NOT NULL
+    ,end_date DATE
     ,PRIMARY KEY (id)
 );
 CREATE TABLE postulation
@@ -126,3 +126,5 @@ CREATE TABLE postulation
     ,FOREIGN KEY (id_offer) REFERENCES offer (id)
 );
 INSERT INTO admin VALUES (NULL, "Sanquirgo", "Tanguy", "tanguy.sanquirgo@foo-d.fr", "1998-12-15", "France", "Boulogne-Billancourt", "92100", "2020-10-07", "temp", (DATEDIFF(CURDATE(), "2020-10-07") * 2.5) / 28, 0);
+INSERT INTO offer VALUES (NULL, "Waiter", "The restaurant waiter prepares the room, serves meals and serves tables.", 1, "2021-02-03", NULL);
+INSERT INTO postulation VALUES (NULL, "Sanquirgo", "Tanguy", "tanguy.sanquirgo@foo-d.fr", "1998-12-15", "France", "Boulogne-Billancourt", "92100", 1, 1, 1);
