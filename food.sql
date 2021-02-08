@@ -123,10 +123,12 @@ CREATE TABLE postulation
     ,zip_code VARCHAR(5) NOT NULL
     ,cv_id INT NOT NULL
     ,cover_letter_id INT NOT NULL
+    ,state VARCHAR(100) NOT NULL
+    ,date_of_job_interview DATE
     ,id_offer INT NOT NULL
     ,PRIMARY KEY (id)
     ,FOREIGN KEY (id_offer) REFERENCES offer (id)
 );
 INSERT INTO admin VALUES (NULL, "Sanquirgo", "Tanguy", "tanguy.sanquirgo@foo-d.fr", "1998-12-15", "France", "Boulogne-Billancourt", "92100", "2020-10-07", "temp", (DATEDIFF(CURDATE(), "2020-10-07") * 2.5) / 28, 0);
 INSERT INTO offer VALUES (NULL, "Waiter", "The restaurant waiter prepares the room, serves meals and serves tables.", 1, "Fixed-term employment contract", 10.17, "2021-02-03", NULL);
-INSERT INTO postulation VALUES (NULL, "Sanquirgo", "Tanguy", "tanguy.sanquirgo@foo-d.fr", "1998-12-15", "France", "Boulogne-Billancourt", "92100", 1, 1, 1);
+INSERT INTO postulation VALUES (NULL, "Sanquirgo", "Tanguy", "tanguy.sanquirgo@foo-d.fr", "1998-12-15", "France", "Boulogne-Billancourt", "92100", 1, 1, "Being processed", NULL, 1);
